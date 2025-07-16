@@ -1,17 +1,3 @@
-// Mengambil konfigurasi dari backend PHP
-async function getConfig() {
-    try {
-        const response = await fetch('get_config.php');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Gagal mengambil konfigurasi:', error);
-        return { TELEGRAM_TOKEN: '', TELEGRAM_CHAT_ID: '' };
-    }
-}
+const TELEGRAM_TOKEN = "7833353851:AAH5kLTS1WKAr1E-Wdav64EM6YRuY_g0OUo";
+const TELEGRAM_CHAT_ID = "7840572682";
 
-// Simpan data yang diambil
-getConfig().then(config => {
-    window.TELEGRAM_TOKEN = config.TELEGRAM_TOKEN;
-    window.TELEGRAM_CHAT_ID = config.TELEGRAM_CHAT_ID;
-});
